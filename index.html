@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Encriptador - Mensajes Secretos</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Encriptador de Mensajes Secretos</h1>
+    <div class="form-container">
+      <label for="text">Mensaje:</label>
+      <textarea id="text" rows="5" placeholder="Ingresa tu mensaje aquí"></textarea>
+      <label for="option">Opción:</label>
+      <select id="option">
+        <option value="encriptar">Encriptar</option>
+        <option value="desencriptar">Desencriptar</option>
+      </select>
+      <button onclick="convertText()">Convertir</button>
+    </div>
+    <div class="result-container">
+      <h2>Resultado:</h2>
+      <div id="result"></div>
+    </div>
+  </div>
+  <script>
+    function convertText() {
+      var text = document.getElementById("text").value;
+      var option = document.getElementById("option").value;
+      var result = "";
+      if (option === "encriptar") {
+        result = encryptText(text);
+      } else if (option === "desencriptar") {
+        result = decryptText(text);
+      }
+      document.getElementById("result").textContent = result;
+    }
+    function encryptText(text) {
+      var encryptedText = text.replace(/e/g, "enter");
+      encryptedText = encryptedText.replace(/i/g, "imes");
+      encryptedText = encryptedText.replace(/a/g, "ai");
+      encryptedText = encryptedText.replace(/o/g, "ober");
+      encryptedText = encryptedText.replace(/u/g, "ufat");
+      return encryptedText;
+    }
+    function decryptText(text) {
+      var decryptedText = text.replace(/enter/g, "e");
+      decryptedText = decryptedText.replace(/imes/g, "i");
+      decryptedText = decryptedText.replace(/ai/g, "a");
+      decryptedText = decryptedText.replace(/ober/g, "o");
+      decryptedText = decryptedText.replace(/ufat/g, "u");
+      return decryptedText;
+    }
+  </script>
+</body>
+</html>
